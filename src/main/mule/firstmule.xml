@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	
+	<flow name="firstmuleFlow1" doc:id="ff314789-cd3e-4ce8-aa3a-b7826aab9e18" >
+	</flow>
+	<flow name="firstmuleFlow" doc:id="707d2488-3a25-46db-98bd-0a89fde6cb39" >
+		<http:listener doc:name="Listener" doc:id="ecde4218-5d0c-48c6-8937-1ab2fa38abb0" config-ref="HTTP_Listener_config" path="/firstmule"/>
+		<set-payload value="Hello mule" doc:name="Set Payload" doc:id="e4dc11b5-f816-4554-8fa6-968564765c84" />
+		<logger level="INFO" doc:name="Logger" doc:id="42ce70cb-780b-4e2a-9725-4773b1448d93" message='#[output application/java&#10;---&#10;"Username: " ++ Mule::p("secure::example.username")&#10;++ " - " ++&#10;"Password: " ++ Mule::p("secure::example.password")]'/>
+	</flow>
+</mule>
